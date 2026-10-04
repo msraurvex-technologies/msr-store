@@ -1,0 +1,8 @@
+{
+  "name": "MSR AURVEX",
+  "short_name": "MSR",
+  "start_url": "/msr-store/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#ff1744"
+}
