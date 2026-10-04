@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSR AURVEX TECHNOLOGIES | PC Store</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,Arial,sans-serif;
+    background:#050505;
+    color:#fff;
+}
+
+:root{
+    --red:#ff1744;
+    --green:#20d46b;
+    --bg:#050505;
+    --card:#101014;
+    --line:#25252c;
+    --muted:#85858f;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(5,5,5,.9);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid #1c1c21;
+}
+
+.nav{
+    max-width:1300px;
+    margin:auto;
+    padding:15px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    min-width:max-content;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+    border:2px solid var(--red);
+    border-radius:10px;
+    display:grid;
+    place-items:center;
+    font-weight:900;
+    box-shadow:0 0 25px rgba(255,23,68,.25);
+}
+
+.logo-name{
+    font-size:16px;
+    font-weight:900;
+    letter-spacing:1.5px;
+}
+
+.logo-sub{
+    font-size:8px;
+    color:#777;
+    letter-spacing:3px;
+    margin-top:3px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    font-size:12px;
+    color:#aaa;
+    font-weight:700;
+}
+
+nav a:hover{
+    color:#fff;
+}
+
+.cart-button{
+    background:#16161b;
+    border:1px solid #303038;
+    color:#fff;
+    padding:10px 15px;
+    border-radius:7px;
+    font-weight:700;
+}
+
+.cart-button span{
+    background:var(--red);
+    padding:3px 7px;
+    border-radius:20px;
+    margin-left:5px;
+}
+
+.hero{
+    min-height:92vh;
+    padding:150px 7% 80px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at 80% 40%,rgba(255,0,55,.23),transparent 30%),
+    radial-gradient(circle at 20% 80%,rgba(80,0,255,.10),transparent 28%),
+    #050505;
+}
+
+.hero-content{
+    max-width:800px;
+    z-index:2;
+}
+
+.eyebrow{
+    color:var(--red);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:5px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(50px,8vw,100px);
+    line-height:.9;
+    letter-spacing:-5px;
+    font-weight:900;
+}
+
+.hero h1 span{
+    color:var(--red);
+}
+
+.hero p{
+    color:#96969f;
+    max-width:650px;
+    line-height:1.8;
+    margin-top:25px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 22px;
+    border-radius:7px;
+    border:0;
+    font-size:12px;
+    font-weight:900;
+    display:inline-block;
+}
+
+.red{
+    background:var(--red);
+    color:white;
+}
+
+.outline{
+    border:1px solid #36363d;
+    color:#fff;
+    background:transparent;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+section{
+    padding:95px 7%;
+}
+
+.section-head{
+    max-width:1300px;
+    margin:0 auto 40px;
+}
+
+.section-head small{
+    color:var(--red);
+    font-size:11px;
+    letter-spacing:4px;
+    font-weight:900;
+}
+
+.section-head h2{
+    font-size:42px;
+    margin-top:8px;
+}
+
+.section-head p{
+    color:#777;
+    margin-top:10px;
+    line-height:1.7;
+}
+
+.store{
+    background:#08080b;
+    border-top:1px solid #15151a;
+}
+
+.shop-top{
+    max-width:1300px;
+    margin:0 auto 25px;
+    display:flex;
+    gap:12px;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+.search{
+    flex:1;
+    min-width:230px;
+    background:#111116;
+    border:1px solid #292930;
+    color:white;
+    padding:14px 16px;
+    border-radius:7px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:var(--red);
+}
+
+.filters{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+}
+
+.filter{
+    border:1px solid #292930;
+    background:#111116;
+    color:#aaa;
+    padding:10px 14px;
+    border-radius:6px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.filter.active,
+.filter:hover{
+    background:var(--red);
+    border-color:var(--red);
+    color:#fff;
+}
+
+.products{
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:17px;
+}
+
+.product{
+    background:linear-gradient(145deg,#15151a,#0c0c10);
+    border:1px solid #25252c;
+    border-radius:12px;
+    padding:18px;
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-6px);
+    border-color:rgba(255,23,68,.6);
+}
+
+/* ഇമേജ് സൈസ് കൃത്യമാക്കുന്ന ഭാഗം */
+.product-image{
+    height:180px;
+    width:100%;
+    border-radius:9px;
+    background:#09090b;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:18px;
+    overflow:hidden;
+    padding:10px;
+}
+
+.product-image img{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain; /* ചിത്രത്തിന്റെ അനുപാതം തെറ്റാതെ ഫ്രെയിമിൽ കൃത്യമായി ഇരിക്കാൻ */
+}
+
+.product h3{
+    font-size:16px;
+}
+
+.category{
+    color:#777;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin:6px 0 10px;
+}
+
+.product p{
+    color:#777;
+    font-size:12px;
+    line-height:1.5;
+    min-height:38px;
+}
+
+.product-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-top:18px;
+}
+
+.price{
+    color:var(--red);
+    font-weight:900;
+    font-size:17px;
+}
+
+.add{
+    background:#202027;
+    color:#fff;
+    border:1px solid #34343d;
+    padding:9px 11px;
+    border-radius:6px;
+    font-size:10px;
+    font-weight:900;
+}
+
+.add:hover{
+    background:var(--red);
+    border-color:var(--red);
+}
+
+.builds{
+    background:#050505;
+}
+
+.build-grid{
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:17px;
+}
+
+.build{
+    border:1px solid #28282f;
+    background:#101014;
+    border-radius:13px;
+    padding:25px;
+}
+
+.build:hover{
+    border-color:var(--red);
+}
+
+.build-icon{
+    font-size:40px;
+    margin-bottom:18px;
+}
+
+.build h3{
+    font-size:20px;
+}
+
+.build .level{
+    color:var(--red);
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:900;
+    margin:7px 0 15px;
+}
+
+.build ul{
+    list-style:none;
+}
+
+.build li{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+    border-bottom:1px solid #1f1f25;
+    color:#777;
+    font-size:11px;
+}
+
+.build li strong{
+    color:#ddd;
+}
+
+.build-price{
+    font-size:22px;
+    color:#fff;
+    font-weight:900;
+    margin:20px 0 14px;
+}
+
+.buy-build{
+    width:100%;
+    border:0;
+    padding:12px;
+    background:var(--red);
+    color:#fff;
+    border-radius:6px;
+    font-weight:900;
+    font-size:11px;
+}
+
+.brands{
+    background:#08080b;
+    text-align:center;
+}
+
+.brand-list{
+    max-width:1000px;
+    margin:auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+}
+
+.brand{
+    padding:15px 23px;
+    border:1px solid #292930;
+    background:#101014;
+    border-radius:7px;
+    color:#ccc;
+    font-size:12px;
+    font-weight:900;
+}
+
+.services-grid{
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:17px;
+}
+
+.service{
+    text-align:center;
+    border:1px solid #25252c;
+    padding:28px 18px;
+    border-radius:12px;
+    background:#0d0d11;
+}
+
+.service-icon{
+    font-size:35px;
+}
+
+.service h3{
+    margin:14px 0 8px;
+}
+
+.service p{
+    color:#777;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.contact{
+    text-align:center;
+    background:
+    radial-gradient(circle at center,rgba(255,23,68,.12),transparent 40%),
+    #070709;
+}
+
+.contact h2{
+    font-size:clamp(35px,5vw,65px);
+}
+
+.contact p{
+    max-width:600px;
+    margin:15px auto 25px;
+    color:#777;
+    line-height:1.7;
+}
+
+.phones{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:22px;
+}
+
+.phone{
+    border:1px solid #292930;
+    padding:12px 18px;
+    border-radius:7px;
+    color:#ccc;
+}
+
+footer{
+    padding:30px 7%;
+    border-top:1px solid #1c1c21;
+    color:#555;
+    font-size:11px;
+}
+
+.footer-inner{
+    max-width:1300px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.cart-panel{
+    position:fixed;
+    right:-430px;
+    top:0;
+    width:400px;
+    max-width:92%;
+    height:100vh;
+    background:#0c0c10;
+    border-left:1px solid #292930;
+    z-index:2000;
+    padding:25px;
+    transition:.35s;
+    box-shadow:-20px 0 60px rgba(0,0,0,.5);
+}
+
+.cart-panel.open{
+    right:0;
+}
+
+.cart-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:18px;
+    border-bottom:1px solid #25252c;
+}
+
+.close{
+    background:none;
+    border:0;
+    color:#fff;
+    font-size:24px;
+}
+
+.cart-items{
+    margin-top:20px;
+    max-height:55vh;
+    overflow:auto;
+}
+
+.cart-item{
+    padding:13px 0;
+    border-bottom:1px solid #222;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.cart-item small{
+    color:#777;
+    display:block;
+    margin-top:5px;
+}
+
+.remove{
+    background:none;
+    border:0;
+    color:var(--red);
+    font-size:11px;
+}
+
+.cart-total{
+    margin-top:25px;
+    display:flex;
+    justify-content:space-between;
+    font-size:20px;
+    font-weight:900;
+}
+
+.checkout{
+    width:100%;
+    border:0;
+    background:#19b957;
+    color:#fff;
+    padding:14px;
+    margin-top:20px;
+    border-radius:7px;
+    font-weight:900;
+}
+
+.empty{
+    color:#666;
+    text-align:center;
+    padding:40px 0;
+}
+
+@media(max-width:1050px){
+    .products,
+    .build-grid,
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    nav ul{
+        display:none;
+    }
+}
+
+@media(max-width:600px){
+    .nav{
+        padding:12px 15px;
+    }
+
+    .logo-name{
+        font-size:13px;
+    }
+
+    .hero{
+        padding:135px 6% 65px;
+    }
+
+    .hero h1{
+        font-size:52px;
+        letter-spacing:-3px;
+    }
+
+    section{
+        padding:70px 6%;
+    }
+
+    .products,
+    .build-grid,
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-head h2{
+        font-size:33px;
+    }
+
+    .cart-button{
+        padding:8px 10px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+
+<a href="#home" class="logo">
+    <div class="logo-icon">A</div>
+    <div>
+        <div class="logo-name">MSR AURVEX</div>
+        <div class="logo-sub">TECHNOLOGIES</div>
+    </div>
+</a>
+
+<nav>
+<ul>
+<li><a href="#home">HOME</a></li>
+<li><a href="#store">STORE</a></li>
+<li><a href="#builds">BUILDS</a></li>
+<li><a href="#services">SERVICES</a></li>
+<li><a href="#contact">CONTACT</a></li>
+</ul>
+</nav>
+
+<button class="cart-button" onclick="openCart()">
+🛒 CART <span id="cartCount">0</span>
+</button>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="eyebrow">MSR AURVEX TECHNOLOGIES</div>
+
+<h1>
+POWER.<br>
+<span>PRECISION.</span><br>
+PERFORMANCE.
+</h1>
+
+<p>
+Premium custom PC builds and components for gamers,
+creators, professionals and enthusiasts. From budget
+systems to ultra high-end machines.
+</p>
+
+<div class="hero-buttons">
+<a href="#builds" class="btn red">VIEW PC BUILDS</a>
+<a href="#store" class="btn outline">SHOP COMPONENTS</a>
+</div>
+
+</div>
+</section>
+
+
+<!-- STORE -->
+<section class="store" id="store">
+
+<div class="section-head">
+<small>ONLINE STORE</small>
+<h2>PC COMPONENTS</h2>
+<p>Choose the hardware you need for your next build.</p>
+</div>
+
+<div class="shop-top">
+
+<input
+id="search"
+class="search"
+placeholder="Search processor, RAM, SSD, GPU..."
+onkeyup="searchProducts()"
+>
+
+<div class="filters">
+<button class="filter active" onclick="filterProducts('all',this)">ALL</button>
+<button class="filter" onclick="filterProducts('CPU',this)">CPU</button>
+<button class="filter" onclick="filterProducts('GPU',this)">GPU</button>
+<button class="filter" onclick="filterProducts('RAM',this)">RAM</button>
+<button class="filter" onclick="filterProducts('SSD',this)">SSD</button>
+<button class="filter" onclick="filterProducts('MONITOR',this)">MONITOR</button>
+<button class="filter" onclick="filterProducts('ACCESSORY',this)">ACCESSORY</button>
+</div>
+
+</div>
+
+<div class="products" id="products"></div>
+
+</section>
+
+
+<!-- BUILDS -->
+<section class="builds" id="builds">
+
+<div class="section-head">
+<small>READY BUILDS</small>
+<h2>FROM LOW END TO ULTRA</h2>
+<p>Pre-designed configurations. Customization is available.</p>
+</div>
+
+<div class="build-grid">
+
+<div class="build">
+<div class="build-icon">⚡</div>
+<h3>STARTER</h3>
+<div class="level">ENTRY LEVEL</div>
+
+<ul>
+<li>CPU <strong>Ryzen 5 / Core i5</strong></li>
+<li>GPU <strong>RTX 4060 Class</strong></li>
+<li>RAM <strong>16GB</strong></li>
+<li>SSD <strong>500GB</strong></li>
+</ul>
+
+<div class="build-price">₹45,000+</div>
+
+<button class="buy-build" onclick="addBuild('Starter PC',45000)">
+ADD BUILD
+</button>
+</div>
+
+
+<div class="build">
+<div class="build-icon">🔥</div>
+<h3>GAMER PRO</h3>
+<div class="level">HIGH PERFORMANCE</div>
+
+<ul>
+<li>CPU <strong>Ryzen 7 / Core i7</strong></li>
+<li>GPU <strong>RTX 4070 Class</strong></li>
+<li>RAM <strong>32GB</strong></li>
+<li>SSD <strong>1TB NVMe</strong></li>
+</ul>
+
+<div class="build-price">₹85,000+</div>
+
+<button class="buy-build" onclick="addBuild('Gamer Pro PC',85000)">
+ADD BUILD
+</button>
+</div>
+
+
+<div class="build">
+<div class="build-icon">💎</div>
+<h3>EXTREME</h3>
+<div class="level">HIGH END</div>
+
+<ul>
+<li>CPU <strong>Ryzen 9 / Core i9</strong></li>
+<li>GPU <strong>RTX 4080 Class</strong></li>
+<li>RAM <strong>64GB</strong></li>
+<li>SSD <strong>2TB NVMe</strong></li>
+</ul>
+
+<div class="build-price">₹1,50,000+</div>
+
+<button class="buy-build" onclick="addBuild('Extreme PC',150000)">
+ADD BUILD
+</button>
+</div>
+
+
+<div class="build">
+<div class="build-icon">👑</div>
+<h3>ULTRA</h3>
+<div class="level">NO COMPROMISE</div>
+
+<ul>
+<li>CPU <strong>Ryzen 9 / Core Ultra</strong></li>
+<li>GPU <strong>RTX 4090/5090 Class</strong></li>
+<li>RAM <strong>64–128GB</strong></li>
+<li>SSD <strong>4TB+</strong></li>
+</ul>
+
+<div class="build-price">CUSTOM</div>
+
+<button class="buy-build"
+onclick="whatsapp('I need an Ultra High-End PC build.')">
+GET QUOTE
+</button>
+</div>
+
+</div>
+</section>
+
+
+<!-- BRANDS -->
+<section class="brands">
+
+<div class="section-head">
+<small>HARDWARE ECOSYSTEM</small>
+<h2>POPULAR BRANDS</h2>
+</div>
+
+<div class="brand-list">
+<div class="brand">AMD RYZEN</div>
+<div class="brand">INTEL</div>
+<div class="brand">NVIDIA</div>
+<div class="brand">ASUS</div>
+<div class="brand">MSI</div>
+<div class="brand">GIGABYTE</div>
+<div class="brand">CORSAIR</div>
+<div class="brand">KINGSTON</div>
+<div class="brand">SAMSUNG</div>
+<div class="brand">WESTERN DIGITAL</div>
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section id="services">
+
+<div class="section-head">
+<small>WHAT WE OFFER</small>
+<h2>OUR SERVICES</h2>
+</div>
+
+<div class="services-grid">
+
+<div class="service">
+<div class="service-icon">🖥️</div>
+<h3>Custom PC Build</h3>
+<p>Build a PC around your budget and exact performance requirements.</p>
+</div>
+
+<div class="service">
+<div class="service-icon">🔧</div>
+<h3>PC Repair</h3>
+<p>Diagnostics, troubleshooting and hardware service.</p>
+</div>
+
+<div class="service">
+<div class="service-icon">⚙️</div>
+<h3>Upgrades</h3>
+<p>GPU, CPU, RAM, SSD and other component upgrades.</p>
+</div>
+
+<div class="service">
+<div class="service-icon">💡</div>
+<h3>Consultation</h3>
+<p>Get help choosing compatible components for your system.</p>
+</div>
+
+</div>
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+<div class="section-head">
+
+<small>MSR AURVEX TECHNOLOGIES</small>
+
+<h2>LET'S BUILD YOUR PC.</h2>
+
+<p>
+Send your budget and requirements on WhatsApp.
+Our team can help you plan your build.
+</p>
+
+<div class="hero-buttons" style="justify-content:center">
+
+<a
+class="btn red"
+href="https://wa.me/919544070245?text=Hello%20MSR%20AURVEX,%20I%20need%20a%20PC%20build."
+target="_blank">
+WHATSAPP 9544070245
+</a>
+
+<a
+class="btn outline"
+href="https://wa.me/917034420430?text=Hello%20MSR%20AURVEX,%20I%20need%20a%20PC%20build."
+target="_blank">
+WHATSAPP 7034420430
+</a>
+
+</div>
+
+<div class="phones">
+<div class="phone">📱 95440 70245</div>
+<div class="phone">📱 70344 20430</div>
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="footer-inner">
+<div>
+<strong style="color:#ddd">MSR AURVEX TECHNOLOGIES</strong>
+<br>
+<span>Custom PCs • Components • Gaming • Workstations</span>
+</div>
+
+<div>
+© 2026 MSR AURVEX TECHNOLOGIES
+</div>
+</div>
+
+</footer>
+
+
+<!-- CART -->
+<div class="cart-panel" id="cartPanel">
+
+<div class="cart-header">
+<h2>YOUR CART</h2>
+<button class="close" onclick="closeCart()">×</button>
+</div>
+
+<div class="cart-items" id="cartItems"></div>
+
+<div class="cart-total">
+<span>TOTAL</span>
+<span id="cartTotal">₹0</span>
+</div>
+
+<button class="checkout" onclick="checkoutWhatsApp()">
+CHECKOUT ON WHATSAPP
+</button>
+
+</div>
+
+
+<script>
+
+/* പ്രൊഡക്റ്റുകളിൽ PNG ചിത്രങ്ങളുടെ പേരുകൾ ശരിയായി ചേർത്തത് താഴെ കാണാം */
+let products = [
+
+{
+name:"AMD Ryzen 5 Processor",
+category:"CPU",
+price:12999,
+image:"ryzen 5.png"
+},
+
+{
+name:"Intel Core i5 Processor",
+category:"CPU",
+price:14999,
+image:"intel i5.png"
+},
+
+{
+name:"AMD Radeon Graphics",
+category:"GPU",
+price:24999,
+image:"amd radeon.png"
+},
+
+{
+name:"NVIDIA Graphics Card",
+category:"GPU",
+price:29999,
+image:"graphics card.png"
+},
+
+{
+name:"16GB DDR5 Gaming RAM",
+category:"RAM",
+price:4999,
+image:"16gb ram.png"
+},
+
+{
+name:"32GB DDR5 Gaming RAM",
+category:"RAM",
+price:8999,
+image:"32gb ram.png"
+},
+
+{
+name:"1TB NVMe SSD",
+category:"SSD",
+price:5999,
+image:"ssd 1tb.png"
+},
+
+{
+name:"2TB NVMe SSD",
+category:"SSD",
+price:10999,
+image:"ssd 2tb.png"
+},
+
+{
+name:"23-inch Gaming Monitor",
+category:"MONITOR",
+price:9999,
+image:"23 inch monitor.png"
+},
+
+{
+name:"27-inch Gaming Monitor",
+category:"MONITOR",
+price:16999,
+image:"27 inch monitor.png"
+},
+
+{
+name:"Mechanical Gaming Keyboard",
+category:"ACCESSORY",
+price:2999,
+image:"mechanical keyboard.png"
+},
+
+{
+name:"Gaming Mouse",
+category:"ACCESSORY",
+price:1499,
+image:"mouse.png"
+},
+
+{
+name:"Premium Gaming Cabinet",
+category:"ACCESSORY",
+price:6999,
+image:"cabinet.png"
+},
+
+{
+name:"650W Gaming PSU",
+category:"ACCESSORY",
+price:4999,
+image:"power supply.png"
+}
+
+];
+
+let cart=[];
+let currentCategory="all";
+
+
+function displayProducts(list){
+
+const container=document.getElementById("products");
+
+container.innerHTML="";
+
+if(list.length===0){
+
+container.innerHTML=
+'<div style="grid-column:1/-1;text-align:center;color:#666;padding:50px">No products found.</div>';
+
+return;
+
+}
+
+list.forEach((p,index)=>{
+
+container.innerHTML+=`
+
+<div class="product">
+
+<div class="product-image">
+    <img src="${p.image}" alt="${p.name}">
+</div>
+
+<div class="category">${p.category}</div>
+
+<h3>${p.name}</h3>
+
+<p>Premium component suitable for custom PC builds.</p>
+
+<div class="product-bottom">
+
+<div class="price">₹${p.price.toLocaleString("en-IN")}</div>
+
+<button class="add" onclick="addProduct(${index})">
+ADD TO CART
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+function addProduct(index){
+
+cart.push(products[index]);
+
+updateCart();
+
+openCart();
+
+}
+
+
+function addBuild(name,price){
+
+cart.push({
+name:name,
+price:price
+});
+
+updateCart();
+
+openCart();
+
+}
+
+
+function updateCart(){
+
+document.getElementById("cartCount").innerText=cart.length;
+
+let items=document.getElementById("cartItems");
+
+if(cart.length===0){
+
+items.innerHTML='<div class="empty">Your cart is empty.</div>';
+
+}else{
+
+items.innerHTML="";
+
+cart.forEach((item,index)=>{
+
+items.innerHTML+=`
+
+<div class="cart-item">
+
+<div>
+<strong>${item.name}</strong>
+<small>₹${item.price.toLocaleString("en-IN")}</small>
+</div>
+
+<button class="remove" onclick="removeItem(${index})">
+REMOVE
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+let total=cart.reduce((sum,item)=>sum+item.price,0);
+
+document.getElementById("cartTotal").innerText=
+"₹"+total.toLocaleString("en-IN");
+
+}
+
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+
+function openCart(){
+
+document.getElementById("cartPanel").classList.add("open");
+
+}
+
+
+function closeCart(){
+
+document.getElementById("cartPanel").classList.remove("open");
+
+}
+
+
+function searchProducts(){
+
+let text=document.getElementById("search").value.toLowerCase();
+
+let result=products.filter(p=>{
+
+let matchText=
+p.name.toLowerCase().includes(text);
+
+let matchCategory=
+currentCategory==="all" ||
+p.category===currentCategory;
+
+return matchText && matchCategory;
+
+});
+
+displayProducts(result);
+
+}
+
+
+function filterProducts(category,button){
+
+currentCategory=category;
+
+document.querySelectorAll(".filter").forEach(b=>{
+b.classList.remove("active");
+});
+
+button.classList.add("active");
+
+searchProducts();
+
+}
+
+
+function whatsapp(message){
+
+window.open(
+"https://wa.me/919544070245?text="+
+encodeURIComponent(message),
+"_blank"
+);
+
+}
+
+
+function checkoutWhatsApp(){
+
+if(cart.length===0){
+
+alert("Your cart is empty.");
+
+return;
+
+}
+
+let message=
+"Hello MSR AURVEX TECHNOLOGIES,%0A%0AI want to order:%0A";
+
+cart.forEach(item=>{
+
+message +=
+"- "+item.name+
+" - ₹"+item.price.toLocaleString("en-IN")+
+"%0A";
+
+});
+
+let total=cart.reduce((sum,item)=>sum+item.price,0);
+
+message +=
+"%0ATotal: ₹"+
+total.toLocaleString("en-IN")+
+"%0A%0APlease contact me.";
+
+window.open(
+"https://wa.me/919544070245?text="+message,
+"_blank"
+);
+
+}
+
+
+displayProducts(products);
+updateCart();
+
+</script>
+
+</body>
+</html>
